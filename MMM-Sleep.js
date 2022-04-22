@@ -24,9 +24,13 @@ Module.register("MMM-CarouselSleep",{
 			return;
 		}
 		if (self.awake === true) {
-//  Some code to send the MM2 to sleep
-			
 			self.awake = false;
+			MM.getModules().exceptModule(self).enumerate(function(module) {
+				if (module.name !== "MMM-Touch") {
+					module.hide(self.config.sleepTransitionTime);
+				}
+			});
+			Log.info("Going to Sleep says Carousel.");
 		}
 	},
 
