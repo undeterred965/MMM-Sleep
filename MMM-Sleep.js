@@ -30,7 +30,7 @@ Module.register("MMM-CarouselSleep",{
 					module.hide(self.config.sleepTransitionTime);
 				}
 			});
-			Log.info("Going to Sleep says Carousel.");
+			Log.info("Putting MM2 to sleep says MMM-Sleep.");
 		}
 	},
 
@@ -38,6 +38,12 @@ Module.register("MMM-CarouselSleep",{
 		var self = this;
 		if ((notification === "WAKE_UP")&&(self.awake === false)) {
 			self.awake = true;
+			MM.getModules().exceptModule(self).enumerate(function(module) {
+				if (module.name !== "MMM-Touch") {
+					module.show(self.config.sleepTransitionTime);
+				}
+			});
+			Log.info("Waking up MM2 says MMM-Sleep.");
 			self.start();
 		} else if ((notification === "WAKE_UP")&&(self.awake === true)) {
 			self.cancelTimer = true;
