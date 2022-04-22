@@ -1,6 +1,6 @@
 Module.register("MMM-CarouselSleep",{
 	defaults: {
-		timeToSleep: 20,   // In minutes.
+		timeToSleep: 10,   // In minutes.
 	},
 
 	getDom: function() {
@@ -24,7 +24,8 @@ Module.register("MMM-CarouselSleep",{
 			return;
 		}
 		if (self.awake === true) {
-			self.sendNotification("GO_TO_SLEEP");
+//  Some code to send the MM2 to sleep
+			
 			self.awake = false;
 		}
 	},
