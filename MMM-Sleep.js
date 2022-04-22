@@ -1,6 +1,7 @@
 Module.register("MMM-Sleep",{
 	defaults: {
 		timeToSleep: 10,   // In minutes.
+		sleepTransitionTime: 5000,   // In milliseconds
 	},
 
 	getDom: function() {
@@ -31,6 +32,7 @@ Module.register("MMM-Sleep",{
 				}
 			});
 			Log.info("Putting MM2 to sleep says MMM-Sleep.");
+			setTimeout(function() {self.sendSocketNotification("TURN_DISPLAY_OFF");},self.config.sleepTransitionTime+2000);
 		}
 	},
 
