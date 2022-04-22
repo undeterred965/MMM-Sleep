@@ -1,4 +1,4 @@
-Module.register("MMM-CarouselSleep",{
+Module.register("MMM-Sleep",{
 	defaults: {
 		timeToSleep: 10,   // In minutes.
 	},
